@@ -1,0 +1,25 @@
+{
+  "name": "syncfusiontest",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.5.2",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0",
+    "@syncfusion/ej2-vue-base": "^16.4.52",
+    "@syncfusion/ej2-vue-grids": "^16.4.55",
+    "@syncfusion/ej2-vue-inputs": "^16.4.55"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-typescript": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "typescript": "^3.2.1",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
