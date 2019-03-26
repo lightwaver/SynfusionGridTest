@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <HelloWorld msg="Welcome to my Vue.js + TypeScript + Syncfusion + Grid + Custom EditComponent App"/>
 
     <ejs-grid :dataSource="griddata" :editSettings="editSettings" :toolbar="toolbar" height="273px">
       <e-columns>
