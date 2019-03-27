@@ -20,6 +20,10 @@ template read()
 ```
 is missing ;(
 
+## Workarround
+
+listen to the events published by the component and update the data in the underlying datasource by yourself ;)
+
 ## Project setup
 ```
 npm install
