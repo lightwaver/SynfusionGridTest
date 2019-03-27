@@ -26,7 +26,10 @@ listen to the events published by the component and update the data in the under
 See the part in the App.vue :
 
 ```
-
+        instance.$on("input", (newdata: any) => {
+          console.log('new value for ' + syncColumn.field + ' ' + newdata);
+          rowData[syncColumn.field] = newdata; // write the data in the specific field of the data
+        });
 ```
 
 ## Project setup
