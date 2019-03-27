@@ -144,14 +144,16 @@ export default class App extends Vue {
 
     return {
       create(data: any) {
+        console.log("template create()");
         return ele; // return the container element
       },
       read() {
-        debugger; // return the value of the instance - but that gets never invoked!!
+        console.log("template read()");
+        // return the value of the instance - but that gets never invoked!!
         return instance.getValue();
       },
       write(val: any) {
-        debugger; // mount the component to the container element
+        console.log("template write()"); // mount the component to the container element
         instance = new VueGridMapper({
           propsData: { column }
         });
@@ -159,9 +161,13 @@ export default class App extends Vue {
         instance.setValue(val);
       },
       destroy() {
-        debugger; // destroy it again...
+        try {
+        console.log("template destroy()"); // destroy it again...
         instance.$destroy();
         instance = null;
+        }catch(ex) {
+          console.log("error destroying:", ex);
+        }
       }
     };
   }

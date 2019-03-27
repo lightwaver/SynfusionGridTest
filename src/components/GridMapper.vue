@@ -29,8 +29,7 @@ export default class GridMapper extends Vue {
   public created() {
     console.log("gridmapper created");
     this.cellvalue = "created";
-    debugger;
-  }
+    }
 
   public mounted() {
     console.log("gridmapper mounted");
