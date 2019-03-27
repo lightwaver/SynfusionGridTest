@@ -23,6 +23,11 @@ is missing ;(
 ## Workarround
 
 listen to the events published by the component and update the data in the underlying datasource by yourself ;)
+See the part in the App.vue :
+
+```
+
+```
 
 ## Project setup
 ```

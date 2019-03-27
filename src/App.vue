@@ -157,19 +157,20 @@ export default class App extends Vue {
       },
       write(val: any) {
         console.log("template write()"); // mount the component to the container element
-        instance = new VueGridMapper({
+        instance = new VueGridMapper({ // create a new one
           propsData: { column }
         });
-        rowData = val.rowData;
-        syncColumn = val.column;
+        rowData = val.rowData; // remember the data
+        syncColumn = val.column; // remember the column
 
         /* !!! WORKARROUND !!! listen to the event of the component and map it yourself ;) */
         instance.$on("input", (newdata: any) => {
           console.log('new value for ' + syncColumn.field + ' ' + newdata);
-          rowData[syncColumn.field] = newdata;
+          rowData[syncColumn.field] = newdata; // write the data in the specific field of the data
         });
-        instance.$mount(ele); // pass the container
-        instance.setValue(val.rowData[syncColumn.field]);
+
+        instance.$mount(ele); // mount it and pass the container
+        instance.setValue(val.rowData[syncColumn.field]); // set the current data in the component
       },
       destroy() {
         try {
