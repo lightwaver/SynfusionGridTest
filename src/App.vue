@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to my Vue.js + TypeScript + Syncfusion + Grid + Custom EditComponent App"/>
+    <HelloWorld
+      msg="Welcome to my Vue.js + TypeScript + Syncfusion + Grid + Custom EditComponent App"
+    />
 
     <ejs-grid :dataSource="griddata" :editSettings="editSettings" :toolbar="toolbar" height="273px">
       <e-columns>
@@ -141,7 +143,8 @@ export default class App extends Vue {
     // prepare the vue Component for it
     const VueGridMapper = Vue.extend(GridMapper);
     let instance: any = null; // no current instance
-
+    let rowData: any = null;
+    let syncColumn: any = null;
     return {
       create(data: any) {
         console.log("template create()");
@@ -157,15 +160,23 @@ export default class App extends Vue {
         instance = new VueGridMapper({
           propsData: { column }
         });
+        rowData = val.rowData;
+        syncColumn = val.column;
+
+        /* !!! WORKARROUND !!! listen to the event of the component and map it yourself ;) */
+        instance.$on("input", (newdata: any) => {
+          console.log('new value for ' + syncColumn.field + ' ' + newdata);
+          rowData[syncColumn.field] = newdata;
+        });
         instance.$mount(ele); // pass the container
-        instance.setValue(val);
+        instance.setValue(val.rowData[syncColumn.field]);
       },
       destroy() {
         try {
-        console.log("template destroy()"); // destroy it again...
-        instance.$destroy();
-        instance = null;
-        }catch(ex) {
+          console.log("template destroy()"); // destroy it again...
+          instance.$destroy();
+          instance = null;
+        } catch (ex) {
           console.log("error destroying:", ex);
         }
       }

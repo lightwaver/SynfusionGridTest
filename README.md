@@ -1,5 +1,25 @@
 # syncfusiontest
 
+## Problem description
+The problem is that the template functions written in the App.vue -> getEditCell never gets called
+
+if you look into the console you see:
+``` 
+template create()
+template write()
+gridmapper created
+gridmapper mounted
+gridmapper setValue
+template destroy()
+```
+but the read() method never gets called ;(
+
+the line
+```
+template read()
+```
+is missing ;(
+
 ## Project setup
 ```
 npm install

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ejs-textbox v-bind:value="cellvalue"></ejs-textbox>
+    <ejs-textbox v-bind:value="cellvalue" @input="valueChanged"></ejs-textbox>
   </div>
 </template>
 <script lang="ts">
@@ -43,8 +43,13 @@ export default class GridMapper extends Vue {
     this.cellvalue = val;
   }
 
+  public getValue(): any {
+    console.log("gridmapper getValue");
+    return "2019-01-01";
+  }
+
   private valueChanged(val: any) {
-    this.$emit("input", this.cellvalue);
+    this.$emit("input", val.value);
   }
 }
 </script>
