@@ -32,6 +32,8 @@ See the part in the App.vue :
         });
 ```
 
+But the "Cancel" is then useless ;(
+
 ## Project setup
 ```
 npm install
