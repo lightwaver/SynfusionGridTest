@@ -1,4 +1,4 @@
-# syncfusiontest
+# Syncfusion Grid test with custom vue component as edit Template
 
 ## Problem description
 The problem is that the template functions written in the App.vue -> getEditCell never gets called
